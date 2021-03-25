@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% block title %} Generate {% endblock %}
+{% block header %} Generate {% endblock %}
+{% block body %}
+    <div class="jumbotron my-2">
+
+        <div class="basic-info">
+            <img class="profile-picture" src="{{ doctor.picture.url }}" alt="{{ doctor.family }}" height="150">
+            <h1 class="display-5 ">{{ doctor.name }} {{ doctor.family }}</h1>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <strong>Basic Information</strong>
+            </div>
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <strong>Age: </strong>
+                        {{ doctor.age }}
+                    </div>
+                    <div>
+                        <strong>Sex: </strong>
+                        {{ doctor.sex }}
+                    </div>
+                    <div>
+                        <strong>LinkedIn URL: </strong>
+                        {{ doctor.linkedin_url }}
+                    </div>
+                    <div>
+                        <strong>Address: </strong>
+                        {{ doctor.address }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="card">
+                <div class="card-header">
+                    <strong>Doctor Educations</strong>
+                </div>
+                <div class="card-body">
+                    {% for education in doctor_educations %}
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <strong>Education: </strong>
+                                {{ education.education }}
+                            </div>
+                            <div>
+                                <strong>Title: </strong>
+                                {{ education.title }}
+                            </div>
+                            <div>
+                                <strong>Start: </strong>
+                                {{ education.start_year }}
+                            </div>
+                            <div>
+                                <strong>End: </strong>
+                                {{ education.end_year }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+        </div>
+        <br />
+        <div class="card">
+                <div class="card-header">
+                    <strong>Doctor Skills</strong>
+                </div>
+                <div class="card-body">
+
+                        <div class="d-flex flex-wrap">
+                            {% for skill in doctor_skills %}
+                            <div class="skill">
+                                <strong>{{ skill }}</strong>
+                                <progress  value="{{ skill.level }}" max="10"></progress>
+                            </div>
+
+                            {% endfor %}
+                        </div>
+
+                </div>
+        </div>
+        <br />
+        <div class="card">
+                <div class="card-header">
+                    <strong>Doctor Experiences</strong>
+                </div>
+                <div class="card-body">
+                    {% for experience in doctor_experiences %}
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <strong>Company: </strong>
+                                {{ experience.company }}
+                            </div>
+                            <div>
+                                <strong>Start: </strong>
+                                {{ experience.start_date }}
+                            </div>
+                            <div>
+                                <strong>End: </strong>
+                                {{ experience.end_date }}
+                            </div>
+                            <div>
+                                <strong>Working now: </strong>
+                                {%  if  experience.working_now  %}
+                                    <input type="checkbox" checked>
+                                {% else %}
+                                    <input type="checkbox">
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+        </div>
+    </div>
+{% endblock %}

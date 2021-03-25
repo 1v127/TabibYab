@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% block title %} Experiences {% endblock %}
+{% block header %} Experiences {% endblock %}
+{% block body %}
+
+    <h1>Resume Experiences</h1>
+    <hr />
+    <div class="row">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Company</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Working Now</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for experience in experiences %}
+                <tr>
+                    <td>{{ experience.company }}</td>
+                    <td>{{ experience.start_date }}</td>
+                    <td>{{ experience.end_date }}</td>
+                    <td>{{ experience.working_now }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    {{ form.non_field_errors }}
+    <form action="" method="post" novalidate>
+        <div class="form-group">
+            {{ form.doctor.label_tag }}
+            {{ form.doctor }}
+            {{ form.doctor.errors }}
+        </div>
+        <div class="form-group">
+            {{ form.company.label_tag }}
+            {{ form.company }}
+            {{ form.company.errors }}
+        </div>
+        <div class="form-group">
+            {{ form.start_date.label_tag }}
+            {{ form.start_date.errors }}
+            <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
+                    {{ form.start_date }}
+                    <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form.end_date.label_tag }}
+            {{ form.end_date.errors }}
+            <div class="input-group date" id="datetimepicker5" data-target-input="nearest">
+                    {{ form.end_date }}
+                    <div class="input-group-append" data-target="#datetimepicker5" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form.working_now.label_tag }}
+            {{ form.working_now }}
+            {{ form.working_now.errors }}
+        </div>
+        {% csrf_token %}
+        <input class="btn btn-primary" type="submit" value="Add Experience">
+
+    </form>
+    <hr />
+    <div class="d-flex flex-row">
+        <a class="btn btn-primary"
+           href="{% url 'creator:create_doctor_skills' resume_id=doctor_id %}">Previous</a>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker4').datetimepicker({
+                    format: 'L'
+                });
+                $('#datetimepicker5').datetimepicker({
+                    format: 'L'
+                });
+            });
+    </script>
+{% endblock %}
+
