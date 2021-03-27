@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
 from django.forms import formset_factory
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
@@ -10,6 +11,7 @@ from django.urls import reverse
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.views.generic import CreateView
+from django.contrib.auth.hashers import check_password
 
 
 class CreateDoctor(LoginRequiredMixin, CreateView):
@@ -17,7 +19,7 @@ class CreateDoctor(LoginRequiredMixin, CreateView):
     template_name = 'create_doctor.html'
 
     def get_success_url(self):
-        return reverse('creator:edit_doctor', args=(self.object.id, ))
+        return reverse('creator:edit_doctor', args=(self.object.id,))
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -139,3 +141,18 @@ def change_password(request):
             update_session_auth_hash(request, form.user)
             return HttpResponseRedirect(reverse('creator:profile'))
     return render(request, 'registration/change_password.html', {'form': form})
+
+"""
+def login_view(request):
+    this_username = request.POST.get('username')
+    this_password = request.POST.get('password')
+    # role=user or role=doctor
+    #if request.POST['role'] == 'user':
+    this_user = User.objects.get(username=this_username)
+    if check_password(this_user.password, this_password):
+        return redirect('/')
+    else:
+        return 'error: login agin'
+    #else:
+    #    return 'role:doctor , can not login!!'
+"""

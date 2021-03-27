@@ -8,33 +8,31 @@ from . import models
 class DoctorForm(forms.ModelForm):
     class Meta:
         model = models.Doctor
-        exclude = ('user','name', 'family', )
+        exclude = ('user', 'name', 'family',)
 
 
 class DoctorEducationForm(forms.ModelForm):
     class Meta:
         model = models.DoctorEducation
-        exclude = ('doctor', )
+        exclude = ('doctor',)
 
 
 class DoctorSkillForm(forms.ModelForm):
-
     class Meta:
         model = models.DoctorSkill
-        fields = ('skill', 'level', )
+        fields = ('skill', 'level',)
 
 
 class DoctorExperienceForm(forms.ModelForm):
     class Meta:
         model = models.DoctorExperience
-        fields = ('company', 'start_date', 'end_date', 'working_now', )
-        widgets ={
+        fields = ('company', 'start_date', 'end_date', 'working_now',)
+        widgets = {
             'working_now': forms.NullBooleanSelect
         }
 
 
 class RegisterForm(UserCreationForm):
-
     class Meta:
         model = User
         fields = (
@@ -48,7 +46,6 @@ class RegisterForm(UserCreationForm):
 
 
 class EditProfileForm(UserChangeForm):
-
     class Meta:
         model = User
         fields = (
@@ -56,3 +53,14 @@ class EditProfileForm(UserChangeForm):
             'last_name',
             'email',
         )
+
+"""
+class LoginForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = (
+            'username',
+            'password',
+            'role'
+        )
+"""

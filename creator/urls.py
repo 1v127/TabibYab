@@ -12,6 +12,7 @@ urlpatterns = [
     path('experiences/<int:doctor_id>/', views.create_doctor_experience, name='create_doctor_experiences'),
 
     path('registration/login/', auth_views.LoginView.as_view(), name='login'),
+    #path('registration/login/', views.login_view, name='login'),
     path('registration/logout/', views.logout_view, name='logout'),
     path('registration/register/', views.register_view, name='register'),
     path('registration/profile/', views.view_profile, name='profile'),

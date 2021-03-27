@@ -23,6 +23,10 @@ class Skill(BaseModel):
 class Sex(BaseModel):
     pass
 
+"""
+class Role(BaseModel):
+    pass
+"""
 
 class Doctor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='user')

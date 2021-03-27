@@ -123,4 +123,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/"
 
 LOGIN_URL = "/create/registration/login/"
-LOGIN_REDIRECT_URL = '/create/registration/profile/'
+#LOGIN_REDIRECT_URL = '/create/registration/profile/'
+LOGIN_REDIRECT_URL = '/'
