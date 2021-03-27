@@ -3,7 +3,7 @@
 {% block header %} Skills {% endblock %}
 {% block body %}
 
-    <h1>Resume Skills</h1>
+    <h1>Doctor Skills</h1>
     <hr />
     <div class="row">
         <table class="table table-bordered">
@@ -40,6 +40,6 @@
     <div class="d-flex justify-content-between">
         <a class="btn btn-primary"
            href="{% url 'creator:create_doctor_educations' doctor_id=doctor_id %}">Previous</a>
-        <a class="btn btn-primary" href="{% url 'creator:create_doctor_experiences' doctor_id=resume_id %}">Next</a>
+        <a class="btn btn-primary" href="{% url 'creator:create_doctor_experiences' doctor_id=doctor_id %}">Next</a>
     </div>
 {% endblock %}

@@ -3,7 +3,7 @@
 {% block header %} Experiences {% endblock %}
 {% block body %}
 
-    <h1>Resume Experiences</h1>
+    <h1>Doctor Experiences</h1>
     <hr />
     <div class="row">
         <table class="table table-bordered">
@@ -72,7 +72,7 @@
     <hr />
     <div class="d-flex flex-row">
         <a class="btn btn-primary"
-           href="{% url 'creator:create_doctor_skills' resume_id=doctor_id %}">Previous</a>
+           href="{% url 'creator:create_doctor_skills' doctor_id=doctor_id %}">Previous</a>
     </div>
 {% endblock %}
 

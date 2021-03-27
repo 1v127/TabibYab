@@ -52,7 +52,7 @@ def index(request):
         company_count = request.GET['company_count']
         if company_count:
             doctor_list = doctor_list.annotate(exp_count=
-                                               Count('resume_experience')).filter(exp_count__gte=int(company_count))
+                                               Count('doctor_experience')).filter(exp_count__gte=int(company_count))
 
     # working-now
     if 'working_now' in request.GET:
