@@ -14,7 +14,7 @@ from django.views.generic import CreateView
 
 class CreateDoctor(LoginRequiredMixin, CreateView):
     form_class = forms.DoctorForm
-    template_name = 'create_doctor.html'
+    template_name = 'registration/create_doctor.html'
 
     def get_success_url(self):
         return reverse('creator:edit_doctor', args=(self.object.id, ))
@@ -30,7 +30,7 @@ class CreateDoctor(LoginRequiredMixin, CreateView):
 def edit_doctor(request, doctor_id):
     doctor = get_object_or_404(models.Doctor, id=doctor_id)
     form = forms.DoctorForm(instance=doctor)
-    return render(request, 'create_doctor.html', {'form': form})
+    return render(request, 'registration/create_doctor.html', {'form': form})
 
 
 @login_required()

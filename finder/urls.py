@@ -6,4 +6,6 @@ app_name = 'finder'
 urlpatterns = [
     path('', views.index, name='index'),
     path('contact/', views.contact, name='contact'),
+
+
 ]

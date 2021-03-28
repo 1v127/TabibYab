@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     #
     'creator',
     'generator',
-    'finder'
+    'finder',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
