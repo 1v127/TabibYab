@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'generator',
     'finder',
     'rest_framework',
+    'phone_field',
+    'fav',
 ]
 
 MIDDLEWARE = [
@@ -111,7 +113,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 
 STATIC_URL = '/static/'

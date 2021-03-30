@@ -12,8 +12,14 @@
         <div class="col-md-3 mb-3">
             <input name="family" type="text" class="form-control" value="{{ search_param.family }}" placeholder="Family">
         </div>
+       <div class="col-md-3 mb-3">
+            <input name="address" type="text" class="form-control" value="{{ search_param.address }}" placeholder="Adress">
+        </div>
         <div class="col-md-3 mb-3">
             <input name="age" min="1" type="number" class="form-control" value="{{ search_param.age }}" placeholder="Age">
+        </div>
+    <div class="col-md-3 mb-3">
+            <input name="phone_number" min="1"  class="form-control" value="{{ search_param.phone_number }}" placeholder="Phone_number">
         </div>
         <div class="col-md-3 mb-3">
             <select name="gender" class="form-control">
@@ -97,6 +103,13 @@
                             <div>
                                 <strong>Age: </strong>
                                 {{ doctor.age }}
+                            </div><div>
+                                <strong>Phone_number: </strong>
+                                {{ doctor.phone_number }}
+                            </div>
+                            <div>
+                                <strong>Adress: </strong>
+                                {{ doctor.Adress }}
                             </div>
                             <div>
                                 <strong>Sex: </strong>

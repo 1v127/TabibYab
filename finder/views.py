@@ -28,7 +28,11 @@ def index(request):
         age = request.GET['age']
         if age:
             doctor_list = doctor_list.filter(age__lte=int(age))
-
+        # Phone_number
+        if 'phone_number' in request.GET:
+            phone_number = request.GET['phone_number']
+            if phone_number:
+                doctor_list = doctor_list.filter(phone_number__lte=int(phone_number))
     # gender
     if 'gender' in request.GET:
         gender = request.GET['gender']
