@@ -1,3 +1,10 @@
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework import status
+
+from .models import Doctor
+from .serializers import Doctorserializer
+
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -31,6 +38,31 @@ def edit_doctor(request, doctor_id):
     doctor = get_object_or_404(models.Doctor, id=doctor_id)
     form = forms.DoctorForm(instance=doctor)
     return render(request, 'registration/create_doctor.html', {'form': form})
+
+
+@api_view(['post'])
+def post_creator(request) :
+    data = {
+
+        'name': request.data['name'],
+        'family': request.data['family'],
+        'phone_number': request.data['phone_number'],
+        'address': request.data['address'],
+        'age': request.data['age'],
+        'sex': request.data['sex'],
+        'linkedin_url': request.data['linkedin_url'],
+
+    }
+
+    ser = Doctorserializer(data=data)
+    if ser.is_valid():
+        ser.save()
+        return Response(ser.data, status=status.HTTP_201_CREATED)
+    else:
+        return Response(ser.errors, status.HTTP_400_BAD_REQUEST)
+
+
+
 
 
 @login_required()
