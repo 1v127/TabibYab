@@ -9,5 +9,4 @@ admin.site.register(models.Sex)
 admin.site.register(models.DoctorEducation)
 admin.site.register(models.DoctorSkill)
 admin.site.register(models.DoctorExperience)
-
-
+admin.site.register(models.Patient)

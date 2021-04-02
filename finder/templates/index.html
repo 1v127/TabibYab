@@ -13,7 +13,7 @@
             <input name="family" type="text" class="form-control" value="{{ search_param.family }}" placeholder="Family">
         </div>
        <div class="col-md-3 mb-3">
-            <input name="address" type="text" class="form-control" value="{{ search_param.address }}" placeholder="Adress">
+            <input name="address" type="text" class="form-control" value="{{ search_param.address }}" placeholder="Address">
         </div>
         <div class="col-md-3 mb-3">
             <input name="age" min="1" type="number" class="form-control" value="{{ search_param.age }}" placeholder="Age">
@@ -99,7 +99,7 @@
                     </div>
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
-                            <a href="#"><img class="" src="{{ doctor.picture.url }}" alt="{{ doctor.family }}" height="100"></a>
+                            <a href="generate/"><img class="" src="{{ doctor.picture.url }}" alt="{{ doctor.family }}" height="100"></a>
                             <div>
                                 <strong>Age: </strong>
                                 {{ doctor.age }}
@@ -108,8 +108,8 @@
                                 {{ doctor.phone_number }}
                             </div>
                             <div>
-                                <strong>Adress: </strong>
-                                {{ doctor.Adress }}
+                                <strong>Address: </strong>
+                                {{ doctor.Address }}
                             </div>
                             <div>
                                 <strong>Sex: </strong>

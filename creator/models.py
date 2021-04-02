@@ -65,3 +65,14 @@ class DoctorExperience(models.Model):
     start_date = models.DateField(blank=True)
     end_date = models.DateField(blank=True)
     working_now = models.BooleanField(default=False)
+
+
+class Patient(models.Model):
+    first_name = models.CharField(max_length=30, verbose_name="First name")
+    second_name = models.CharField(max_length=30, verbose_name="Second name")
+    contact_details = models.CharField(max_length=30, verbose_name="Contact details")
+    postcode = models.CharField(max_length=3, verbose_name="PostCode")
+    patient_status = models.CharField(max_length=30,  verbose_name='Patient status')
+
+    def __str__(self):
+        return self.second_name + " " + self.first_name
