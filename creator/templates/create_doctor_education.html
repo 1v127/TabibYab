@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %} Educations {% endblock %}
+{% block header %} Educations {% endblock %}
+{% block body %}
+
+    <h1>Doctor Educations</h1>
+    <hr />
+    <div class="row">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Educations</th>
+                    <th>Title</th>
+                    <th>Start Year</th>
+                    <th>End Year</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for education in educations %}
+                <tr>
+                    <td>{{ education.education }}</td>
+                    <td>{{ education.title }}</td>
+                    <td>{{ education.start_year }}</td>
+                    <td>{{ education.end_year }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    {{ form.non_field_errors }}
+    <form action="" method="post" novalidate>
+        {% for field in form %}
+            <div class="form-group">
+                {{ field.label_tag }}
+                {{ field }}
+                {{ field.errors }}
+            </div>
+        {% endfor %}
+        {% csrf_token %}
+        <input class="btn btn-primary" type="submit" value="Add Education">
+
+    </form>
+    <hr />
+    <div class="d-flex justify-content-between">
+        <a class="btn btn-primary"
+           href="{% url 'creator:edit_doctor' doctor_id=doctor_id%}">Previous</a>
+        <a class="btn btn-primary"
+           href="{% url 'creator:create_doctor_skills' doctor_id=doctor_id%}">Next</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,41 @@
+version: "3.3"
+networks: 
+    default_stack:
+services:
+                
+  nginx:
+        networks: 
+            - default_stack
+        image: tabibyab/nginx:v1
+        deploy:
+            mode: replicated
+            replicas: 1
+            placement:
+                constraints:
+                    - node.role == manager                   
+        build:
+            context: './app/nginx'
+        ports:
+            - "80:80"
+        volumes:
+            - ./app/python/codes:/var/www/html
+            - ./app/nginx/conf.d/nginx-site.conf:/etc/nginx/conf.d/nginx-site.conf
+        depends_on: 
+         - app   
+  app:
+        networks: 
+          - default_stack
+        image: tabibtab/python-app:v1
+        deploy:
+            mode: replicated
+            replicas: 1
+            placement:
+                constraints:
+                    - node.role == manager    
+        build:
+            context: './app/python'
+        ports:
+            - "8009:8009"
+        volumes:
+            - ./app/python/codes:/opt/app/tabibyab  
+

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %} Profile {% endblock %}
+{% block header %} Profile {% endblock %}
+{% block body %}
+
+    <h1>Profile </h1>
+    <hr />
+    <div class="col-3">
+        <p>Username: {{ user }}</p>
+        <p>First name: {{ user.first_name }}</p>
+        <p>Last name: {{ user.last_name }}</p>
+        <p>Email: {{ user.email }}</p>
+        <br />
+        <a href="{% url 'creator:edit_profile' %}">Edit Profile</a>
+    </div>
+{% endblock %}

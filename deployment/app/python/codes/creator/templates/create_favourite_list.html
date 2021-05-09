@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %} favourite_list {% endblock %}
+{% block header %} favourite_list {% endblock %}
+{% block body %}
+
+    <div class="row result">
+        <div class="d-flex flex-wrap">
+            {% for doctor in new %}
+                <div class="card">
+                    <div class="card-header">
+                        <strong>{{ doctor.name }} {{ doctor.family }}</strong>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <a href="#"><img class="" src="{{ doctor.picture.url }}" alt="{{ doctor.family }}" height="100"></a>
+                            <div>
+                                <strong>Age: </strong>
+                                {{ doctor.age }}
+                            </div>
+                            <div>
+                                <strong>Sex: </strong>
+                                {{ doctor.sex }}
+                            </div>
+                            <div>
+                                <strong>Last Education: </strong>
+                                {{ doctor.doctor_education.last.education }}
+                            </div>
+                            <div>
+                                <a href="{% url 'finder:add_to_favorite' doctor_id=doctor.id %}">
+                                    <i class="fa fa-bookmark" style="font-size:24px"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+         {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

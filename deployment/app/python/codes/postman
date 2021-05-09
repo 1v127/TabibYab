@@ -1,0 +1,249 @@
+{
+	"info": {
+		"_postman_id": "8d021d92-add9-4a21-9983-43fb81a9f01c",
+		"name": "tabibyab",
+		"description": "doctor find",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "doctor_list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search doctor by name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/?name=سامان",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "سامان"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add_to_favourite",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/add_to_favourite/1/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"add_to_favourite",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "contact",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/contact/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"contact",
+						""
+					]
+				},
+				"description": "تماس با ما"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/create/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "admin",
+						"value": "vida",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"urer\": \"ali\"\n    \"neme\": \"علی\",\n    \"family\": \"آذری\",\n    \"phone_number\": \"۰۹۱۲۷۶۴۹۸۵۴\",\n    \"address\": \"رشت\",\n    \"age\": \"۳۹\",\n    \"sex\": \"مرد\",\n    \"linkedin_url\": \"sdf@cvh.com\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/create/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"create",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/create/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "admin",
+						"value": "vida",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"neme\": \"ali\",\n    \"family\": \"azari\",\n    \"phone_number\": \"09120953276\",\n    \"address\": \"rasht\",\n    \"age\": 39,\n    \"sex\": \"men\",\n    \"linkedin_url\": \"sdf@cvh.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/create/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"create",
+						""
+					]
+				},
+				"description": "create"
+			},
+			"response": []
+		},
+		{
+			"name": "search doctor by family",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/?family=همتی",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "family",
+							"value": "همتی"
+						}
+					]
+				},
+				"description": "find"
+			},
+			"response": []
+		},
+		{
+			"name": "search doctor by address",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/?address= مشهد",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "address",
+							"value": " مشهد"
+						}
+					]
+				},
+				"description": "search doctor by address"
+			},
+			"response": []
+		}
+	]
+}
