@@ -22,7 +22,7 @@ SECRET_KEY = '2=jt!ewh0%_2m77#lvxztgmtz=i@)y%szltep#(os0*jw7a@42'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost','vida.ir','127.0.0.1']
 
 
 # Application definition
